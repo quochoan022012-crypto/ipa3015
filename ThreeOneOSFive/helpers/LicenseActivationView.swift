@@ -161,18 +161,3 @@ struct LicenseActivationView: View {
         }
     }
 }
-
-// Conform ActivationResult to Equatable for comparison
-extension ActivationResult: Equatable {
-    static func == (lhs: ActivationResult, rhs: ActivationResult) -> Bool {
-        switch (lhs, rhs) {
-        case (.success(let a), .success(let b)): return a == b
-        case (.invalid, .invalid): return true
-        case (.alreadyUsed, .alreadyUsed): return true
-        case (.notFound, .notFound): return true
-        default: return false
-        }
-    }
-}
-
-extension KeyRole: Equatable {}
